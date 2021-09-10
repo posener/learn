@@ -2,13 +2,9 @@
 
 name: main
 inputs:
-  port:
-    default: 8080
-    description: "Port to listen to"
-    required: false
   addr:
-    default: http://localhost
-    description: "Address that the server is mounted on."
+    default: :8080
+    description: "Address to listen to"
     required: false
   config:
     default: config.json
@@ -18,6 +14,5 @@ runs:
   using: docker
   image: Dockerfile
   args:
-  - "-port=${{ inputs.port }}"
   - "-addr=${{ inputs.addr }}"
   - "-config=${{ inputs.config }}"
