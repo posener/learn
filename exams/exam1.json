@@ -1,0 +1,51 @@
+[
+  {
+    "question": "First question",
+    "options": [
+      "First answer.",
+      "Second answer",
+      "Third answer",
+      "Forth answer"
+    ],
+    "image": "/exams/media/image.png",
+    "answer": 3,
+    "explain": "Because I said so",
+    "reporter": "Joe"
+  },
+  {
+    "question": "Second question",
+    "options": [
+      "First answer.",
+      "Second answer",
+      "Third answer",
+      "Forth answer"
+    ],
+    "answer": 2,
+    "explain": "Different question has a different answer",
+    "reporter": "Jen"
+  },
+  {
+    "question": "Second question",
+    "options": [
+      "First answer.",
+      "Second answer",
+      "Third answer",
+      "Forth answer"
+    ],
+    "answer": 4,
+    "explain": "Different question has a different answer",
+    "reporter": "Jen"
+  },
+  {
+    "question": "Second question",
+    "options": [
+      "First answer.",
+      "Second answer",
+      "Third answer",
+      "Forth answer"
+    ],
+    "answer": 1,
+    "explain": "Different question has a different answer",
+    "reporter": "Jen"
+  }
+]

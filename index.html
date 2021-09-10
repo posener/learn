@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <title>Learn</title>
+</head>
+
+<body>
+<div id="exam">
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a v-if="exam" class="navbar-brand px-3" href="#">{{ exam.desc }}</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            בחינות
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li v-for="(exam, name) in allExams">
+            <a class="dropdown-item" 
+              v-bind:href="`#` + name"
+              v-bind:onclick="`showExam('` + name + `')`"
+            >
+              {{ exam.desc }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <form class="d-flex px-3">
+        <button class="btn btn-outline-success" onclick="onReset()">אפס</button>
+    </form>
+  </div>
+</nav>
+
+
+<!-- Show question with options to choose from. -->
+<div class="p-3" v-if="question">
+  <b> {{ question.question }} </b>
+  <ul class="list-group p-3">
+      <a
+        v-for="(option, i) in question.options" 
+        v-bind:class="optionClass(i)"
+        v-bind:href="pageLink(i)"
+        v-bind:onclick="`onChoose(` + i + `)`"
+      >
+        {{ option }}
+      </a>
+  </ul>
+  <a
+    v-if="question.image"
+    v-bind:href="mountPath() + question.image"
+    target="_blank"
+    >
+    <img
+      v-bind:src="mountPath() + question.image"
+      width="100%"
+      >
+  </a>
+  <i v-if="question.reporter">Contributed by {{ question.reporter }} </i>
+</div>
+
+<div id="pages" class="pages container-fluid fixed-bottom btn-group">
+  <button type="button"
+    v-for="q in questions"
+    v-bind:class="pageClass(q.i)"
+    v-bind:href="pageLink(q.i)"
+    v-bind:onclick="`showQuestion(` + q.i + `)`"
+    v-bind:id="`page-` + q.i"
+  > 
+    {{ q.i + 1 }}
+  </button>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="script.js"></script>  
+</body>
+</html>
+

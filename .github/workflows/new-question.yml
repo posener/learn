@@ -1,0 +1,13 @@
+on:
+  issues:
+    types: [labeled]  
+jobs:
+  new-question:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Add question from issue
+      uses: ./bot
+      with:
+        GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'

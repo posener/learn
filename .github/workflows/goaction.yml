@@ -1,0 +1,20 @@
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  # Goaction needs permissions to update pull requests comments and update contents.
+  pull-requests: write
+  contents: write
+jobs:
+  goaction:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Update action files
+      uses: posener/goaction@v1
+      with:
+        # Optional: required only for commenting on PRs.
+        github-token: '${{ secrets.GITHUB_TOKEN }}'

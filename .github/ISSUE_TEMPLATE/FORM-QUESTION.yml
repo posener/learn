@@ -1,0 +1,78 @@
+name: New question
+description: Add a new question
+title: "[NEW ]"
+labels: [bug, triage]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: Please propse a question according to the fields below.
+  - type: dropdown
+    id: page
+    attributes:
+      label: page
+      description: Choose exam for question
+      options:
+        - exam1
+        - exam2
+  - type: textarea
+    id: question
+    attributes:
+      label: question
+      description: question text
+      placeholder: ex. How many legs a cat has?
+    validations:
+      required: true
+  - type: textarea
+    id: option1
+    attributes:
+      label: option1
+      description: 'Answer option #1'
+      placeholder: One leg
+    validations:
+      required: true
+  - type: textarea
+    id: option2
+    attributes:
+      label: option2
+      description: 'Answer option #2'
+      placeholder: 4 legs
+    validations:
+      required: true
+  - type: textarea
+    id: option3
+    attributes:
+      label: option3
+      description: 'Answer option #3'
+      placeholder: 2 legs
+    validations:
+      required: true
+  - type: textarea
+    id: option4
+    attributes:
+      label: option4
+      description: 'Answer option #2'
+      placeholder: No legs
+    validations:
+      required: true
+  - type: dropdown
+    id: answer
+    attributes:
+      label: answer
+      description: The correct answer
+      options:
+        - 1
+        - 2
+        - 3
+        - 4
+    validations:
+      required: true
+  - type: textarea
+    id: explain
+    attributes:
+      label: explain
+      description: 'Provide explaination for answer'
+      placeholder: All cats have 4 legs, this is obvious.
+    validations:
+      required: false

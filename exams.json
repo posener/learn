@@ -1,0 +1,12 @@
+{
+    "exam1": {
+        "desc": "Exam 1",
+        "lang": "en",
+        "dir": "ltr"
+    },
+    "exam2": {
+        "desc": "Exam 2",
+        "lang": "en",
+        "dir": "ltr"
+    }
+}
